@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 
-
 export default function Login() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -20,19 +19,24 @@ export default function Login() {
   };
 
   return (
-    <div style={{ maxWidth: 300, margin: '100px auto' }}>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="password"
-          placeholder="Enter password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          style={{ width: '100%', padding: 8, marginBottom: 10 }}
-        />
-        <button type="submit" style={{ width: '100%', padding: 8 }}>Login</button>
-      </form>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+    <div className="login-container">
+      <div className="login-card">
+        <h2>🦷 Dental Career App</h2>
+        <p style={{ color: '#718096', marginBottom: 20, fontSize: '0.9rem' }}>
+          Enter password to continue
+        </p>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="password"
+            placeholder="Enter password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            autoFocus
+          />
+          <button type="submit">Login</button>
+        </form>
+        {error && <div className="error">{error}</div>}
+      </div>
     </div>
   );
 }

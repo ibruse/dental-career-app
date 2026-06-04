@@ -1,11 +1,266 @@
-body {
+* {
   margin: 0;
-  font-family: Arial, sans-serif;
+  padding: 0;
+  box-sizing: border-box;
 }
-nav a {
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f4f8;
+  color: #2d3748;
+  min-height: 100vh;
+}
+
+/* ---------- Layout ---------- */
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ---------- Sidebar ---------- */
+.sidebar {
+  width: 260px;
+  background: linear-gradient(180deg, #1a365d 0%, #2a4a7f 100%);
+  color: white;
+  padding: 25px 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 0 15px rgba(0,0,0,0.1);
+}
+
+.sidebar h3 {
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  letter-spacing: 0.5px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  flex: 1;
+}
+
+.sidebar li {
+  margin-bottom: 8px;
+}
+
+.sidebar .country-title {
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #a0c4ff;
+  padding: 12px 10px 6px;
+  display: block;
+}
+
+.sidebar .submenu {
+  padding-left: 15px;
+  margin-bottom: 15px;
+}
+
+.sidebar .submenu li {
+  margin-bottom: 2px;
+}
+
+.sidebar a {
+  color: #e2e8f0;
   text-decoration: none;
-  color: #333;
+  padding: 10px 15px;
+  border-radius: 8px;
+  display: block;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
 }
-nav a:hover {
+
+.sidebar a:hover {
+  background: rgba(255,255,255,0.15);
+  color: white;
+  transform: translateX(3px);
+}
+
+.sidebar .clinics-link {
+  margin-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  padding-top: 20px;
+}
+
+.sidebar .clinics-link a {
+  color: #ffd700;
+  font-weight: 500;
+}
+
+.sidebar .logout-btn {
+  margin-top: auto;
+  padding: 12px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.sidebar .logout-btn:hover {
+  background: rgba(255,255,255,0.2);
+  border-color: rgba(255,255,255,0.5);
+}
+
+/* ---------- Main Content ---------- */
+.main-content {
+  flex: 1;
+  padding: 35px 40px;
+  overflow-y: auto;
+}
+
+.content-card {
+  background: white;
+  border-radius: 12px;
+  padding: 35px;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+  max-width: 900px;
+}
+
+.content-card h2 {
+  color: #1a365d;
+  margin-bottom: 20px;
+  font-size: 1.6rem;
+  padding-bottom: 12px;
+  border-bottom: 3px solid #3182ce;
+  display: inline-block;
+}
+
+.content-card p {
+  line-height: 1.7;
+  margin-bottom: 15px;
+  color: #4a5568;
+}
+
+.content-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.content-card ul li {
+  padding: 10px 15px;
+  margin-bottom: 8px;
+  background: #f7fafc;
+  border-left: 4px solid #3182ce;
+  border-radius: 6px;
+  color: #2d3748;
+  line-height: 1.6;
+}
+
+.content-card ul li a {
+  color: #3182ce;
+  font-weight: 500;
+}
+
+.content-card ul li a:hover {
   text-decoration: underline;
+}
+
+/* ---------- Login Page ---------- */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a365d 0%, #2a4a7f 100%);
+}
+
+.login-card {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  width: 380px;
+  text-align: center;
+}
+
+.login-card h2 {
+  color: #1a365d;
+  margin-bottom: 25px;
+  font-size: 1.5rem;
+}
+
+.login-card input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-bottom: 15px;
+  transition: border 0.2s;
+  outline: none;
+}
+
+.login-card input:focus {
+  border-color: #3182ce;
+  box-shadow: 0 0 0 3px rgba(49,130,206,0.1);
+}
+
+.login-card button {
+  width: 100%;
+  padding: 14px;
+  background: #1a365d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.login-card button:hover {
+  background: #2a4a7f;
+}
+
+.login-card .error {
+  color: #e53e3e;
+  margin-top: 12px;
+  font-size: 0.9rem;
+}
+
+/* ---------- Clinics Table ---------- */
+.clinics-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.clinics-table th {
+  background: #1a365d;
+  color: white;
+  padding: 14px 16px;
+  text-align: left;
+  font-weight: 500;
+}
+
+.clinics-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #e2e8f0;
+  color: #4a5568;
+}
+
+.clinics-table tr:hover td {
+  background: #f7fafc;
+}
+
+.clinics-table tr:last-child td {
+  border-bottom: none;
+}
+
+.vacancy-yes {
+  color: #38a169;
+  font-weight: 600;
+}
+
+.vacancy-no {
+  color: #e53e3e;
+  font-weight: 500;
 }

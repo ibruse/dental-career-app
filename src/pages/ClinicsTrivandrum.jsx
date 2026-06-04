@@ -2,9 +2,12 @@ import clinics from '../data/clinics';
 
 export default function ClinicsTrivandrum() {
   return (
-    <div>
-      <h2>Dental Clinics in Trivandrum, Kerala</h2>
-      <table border="1" cellPadding="8" style={{ borderCollapse: 'collapse', width: '100%' }}>
+    <div className="content-card">
+      <h2>🏥 Dental Clinics in Trivandrum, Kerala</h2>
+      <p style={{ color: '#718096', marginBottom: 20 }}>
+        Local clinics with contact details and current vacancy status
+      </p>
+      <table className="clinics-table">
         <thead>
           <tr>
             <th>Clinic Name</th>
@@ -16,10 +19,10 @@ export default function ClinicsTrivandrum() {
         <tbody>
           {clinics.map((clinic) => (
             <tr key={clinic.id}>
-              <td>{clinic.name}</td>
+              <td><strong>{clinic.name}</strong></td>
               <td>{clinic.address}</td>
               <td>{clinic.phone}</td>
-              <td style={{ color: clinic.vacancy === 'Yes' ? 'green' : 'red' }}>
+              <td className={clinic.vacancy === 'Yes' ? 'vacancy-yes' : 'vacancy-no'}>
                 {clinic.vacancy}
               </td>
             </tr>
